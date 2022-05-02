@@ -10,7 +10,8 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.trainers import ListTrainer
 from train import *
-from d.filterquestions import *
+from train1 import *
+#from d.filterquestions import *
 from getData import *
 
 
@@ -28,14 +29,11 @@ chatbot = ChatBot("Sisly Chatbot", storage_adapter="chatterbot.storage.SQLStorag
         }],preprocessors=['chatterbot.preprocessors.clean_whitespace'])
 trainer = ChatterBotCorpusTrainer(chatbot)
 #trainer.train("chatterbot.corpus.english") #train the chatter bot for english
-'''def datat(d):
-    a=get_Attendence(d)
-    print(a+"yuyu")
-datat(39)'''
 trainer1 = ListTrainer(chatbot)
 trainer1.train(data)
 trainer1.train(data1)
 trainer1.train(attendenceConvo)
+trainer1.train(unrelateddata)
 
 #define app routes
 @app.route("/")

@@ -13,7 +13,7 @@ data1=[
     "what is your name",
     "my name is chatbot",
     "Help me!",
-    "Ok, here is a link: http://chatterbot.rtfd.org"
+    "Ok, here is a link: http://edu-helper.com"
 ]
 
 attendenceConvo=[
