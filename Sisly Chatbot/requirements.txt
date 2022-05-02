@@ -1,0 +1,2 @@
+Flask
+Chatterbot==1.0.4

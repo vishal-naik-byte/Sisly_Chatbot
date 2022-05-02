@@ -1,18 +1,15 @@
-from Chatterbot import ChatBot
+from chatterbot import ChatBot
 from chatterbot.trainers import ListTrainer
-bot = ChatBot('Norman')
-print("ffg")
 
 bot = ChatBot(
-    'Norman',
-    storage_adapter='chatterbot.storage.SQLStorageAdapter',
-    database_uri='sqlite:///database.sqlite3'
-)
-
-bot = ChatBot(
-    'Norman',
+    'Edu-helper Chatbot',
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     logic_adapters=[
+        {
+            'import_path': 'chatterbot.logic.SpecificResponseAdapter',
+            'input_text': 'Help me!',
+            'output_text': 'Ok, here is a link: http://chatterbot.rtfd.org'
+        },
         'chatterbot.logic.MathematicalEvaluation',
         'chatterbot.logic.TimeLogicAdapter'
     ],
@@ -20,14 +17,6 @@ bot = ChatBot(
 )
 
 trainer = ListTrainer(bot)
-
-trainer.train([
-    'How are you?',
-    'I am good.',
-    'That is good to hear.',
-    'Thank you',
-    'You are welcome.',
-])
 
 while True:
     try:
